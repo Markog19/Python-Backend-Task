@@ -1,0 +1,28 @@
+# Web framework
+fastapi>=0.112
+uvicorn[standard]>=0.29
+
+# Database
+SQLAlchemy[asyncio]>=2.0
+asyncpg>=0.29
+alembic>=1.13
+
+# Validation
+pydantic>=2.7
+
+# Auth & security
+python-jose[cryptography]>=3.3
+passlib[bcrypt]>=1.7
+
+# Environment variables
+python-dotenv>=1.0
+
+# Testing
+pytest>=8.2
+pytest-asyncio>=0.23
+httpx>=0.27
+
+# Linting & formatting (optional but interview-friendly)
+ruff>=0.5
+black>=24.4
+mypy>=1.10

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# VS Code
+.vscode/
+
+# Alembic
+migrations/versions/*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Test outputs
+htmlcov/
+.coverage
+.cache/
+
+# Database
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Other
+*.bak
+*.swp
+*.swo
+
+# Ignore env files
+.env
+.env.*
