@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from src.app.core.logging import logger
 
 async def http_exception_handler(request: Request, exc: HTTPException):
-    logger.warning(f"HTTPException: {exc.detail}")
+    logger.warning(f"HTTPException: {exc}")
     return JSONResponse(
         status_code=exc.status_code,
         content={"detail": exc.detail},

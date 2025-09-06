@@ -21,3 +21,10 @@ class UserInDBBase(UserBase):
     class Config:
         orm_mode = True
 
+class TokenSchema(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+class LoginSchema(BaseModel):
+    email: EmailStr
+    password: str

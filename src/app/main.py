@@ -9,7 +9,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# JWT security scheme for Swagger UI
+
 app.openapi_schema = None
 
 def custom_openapi():
@@ -34,8 +34,8 @@ app.openapi = custom_openapi
 app.add_exception_handler(HTTPException, http_exception_handler)
 app.add_exception_handler(Exception, generic_exception_handler)
 
-app.include_router(messages_router, prefix="/messages", tags=["messages"])
-app.include_router(auth_router, prefix="/auth", tags=["auth"])
+app.include_router(messages_router.router, prefix="/messages", tags=["messages"])
+app.include_router(auth_router.router, prefix="/auth", tags=["auth"])
 
 if __name__ == "__main__":
     import uvicorn

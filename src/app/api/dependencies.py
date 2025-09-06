@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, Request
-from src.app.services.auth_service import verify_token as verify_jwt
+from src.app.services.auth_service import AuthService
 from src.app.db.user import User 
 from sqlalchemy.orm import sessionmaker
 
@@ -38,8 +38,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)):
         token = authorization.split(" ")[1]
     except Exception:
         raise HTTPException(status_code=401, detail="Nedozvoljen pristup")
-    payload = verify_jwt(token)
-    user_id = payload.get("sub")
+    user_id = AuthService.verify_token(token)
     user = db.query(User).filter_by(id=user_id).first()
     if not user:
         raise HTTPException(status_code=401, detail="Korisnik nije pronađen")

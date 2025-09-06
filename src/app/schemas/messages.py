@@ -14,7 +14,6 @@ class MessageBase(BaseModel):
     role: str
 
 class MessageCreate(MessageBase):
-    user_id: UUID
     pass
 
 class MessageUpdate(BaseModel):
