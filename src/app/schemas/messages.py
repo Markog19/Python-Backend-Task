@@ -3,15 +3,18 @@ from uuid import UUID
 from datetime import datetime
 from typing import Optional
 
+from sqlalchemy import Integer
+
 class MessageBase(BaseModel):
     message_id: UUID = Field(..., alias="message_id")
     chat_id: UUID = Field(..., alias="chat_id")
     content: str
-    rating: bool
+    rating: int
     sent_at: datetime
     role: str
 
 class MessageCreate(MessageBase):
+    user_id: UUID
     pass
 
 class MessageUpdate(BaseModel):

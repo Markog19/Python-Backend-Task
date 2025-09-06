@@ -1,7 +1,7 @@
 from uuid import UUID
 from datetime import datetime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, Integer
 from .base import Base
 
 class Message(Base):
@@ -10,7 +10,7 @@ class Message(Base):
     message_id: Mapped[UUID] = mapped_column(primary_key=True)
     chat_id: Mapped[UUID]
     content: Mapped[str]
-    rating: Mapped[bool]
+    rating: Mapped[int]
     sent_at: Mapped[datetime]
     role: Mapped[str]
     user_id: Mapped[UUID] = mapped_column(ForeignKey('users.id'))
