@@ -42,4 +42,5 @@ def get_current_user(request: Request, db: Session = Depends(get_db)):
     user = db.query(User).filter_by(id=user_id).first()
     if not user:
         raise HTTPException(status_code=401, detail="Korisnik nije pronađen")
+    request.state.user = user  # For per-user rate limiting
     return user

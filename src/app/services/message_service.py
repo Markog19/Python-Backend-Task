@@ -14,7 +14,6 @@ class MessageService:
             user_id=user_id,
             content=message_data.content,
             sent_at=message_data.sent_at or datetime.datetime.now(),
-            message_id=message_data.message_id,
             chat_id=message_data.chat_id,
             rating=message_data.rating,
             role=message_data.role
@@ -38,6 +37,7 @@ class MessageService:
         message.content = message_data.content
         message.rating = message_data.rating
         message.role = message_data.role
+        message.sent_at = datetime.datetime.now()
         self.db_session.commit()
         self.db_session.refresh(message)
         return message

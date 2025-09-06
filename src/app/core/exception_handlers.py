@@ -1,6 +1,7 @@
 from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
 from src.app.core.logging import logger
+from slowapi.errors import RateLimitExceeded
 
 async def http_exception_handler(request: Request, exc: HTTPException):
     logger.warning(f"HTTPException: {exc}")
@@ -13,5 +14,11 @@ async def generic_exception_handler(request: Request, exc: Exception):
     logger.error(f"Unhandled Exception: {exc}", exc_info=True)
     return JSONResponse(
         status_code=500,
-        content={"detail": "Internal Server Error"},
+        content={"detail": f"Internal Server Error,{exc}" },
+    )
+
+async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+    return JSONResponse(
+        status_code=429,
+        content={"detail": "Rate limit exceeded. Please try again later."}
     )
