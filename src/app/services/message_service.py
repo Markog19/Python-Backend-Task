@@ -1,4 +1,5 @@
 import datetime
+from functools import lru_cache
 from src.app.db.message import Message
 from src.app.schemas.messages import MessageCreate
 
@@ -23,7 +24,7 @@ class MessageService:
         self.db_session.commit()
         self.db_session.refresh(new_message)
 
-
+    @lru_cache(maxsize=256)
     def get_messages(self, user_id):
         return self.db_session.query(Message).filter(Message.user_id == user_id).all()
     
