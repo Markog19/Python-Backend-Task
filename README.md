@@ -313,3 +313,8 @@ python -m alembic -c alembic.ini upgrade head - running locally without docker
 - Enter app container: `docker-compose exec app bash`
 - Run Alembic migration: `alembic revision --autogenerate -m "message"`
 
+### Known limitations
+* CI/CD Pipeline could be implemented for things such as linting, deploying, running tests, etc
+* Caching could be implemented using Redis
+* Lack of monitoring (Prometheus, Grafana, Sentry, etc.)
+* Custom exception handlers for things like DB errors could be implemented
