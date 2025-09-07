@@ -46,9 +46,6 @@ message-service/
 └── tests/
 ```
 
-Got it 👍 Here’s the full README section rewritten as a clean **Markdown file** without any icons in the headers:
-
-
 # Messages API Routes
 
 This module defines the message-related endpoints of the application. It is built with **FastAPI**, uses **SQLAlchemy** for database access, and integrates **SlowAPI** for rate limiting.
@@ -173,7 +170,6 @@ The limiter uses a **per-user key function**:
 
 This ensures fair usage and prevents abuse from both logged-in and anonymous clients.
 
-Here’s the clean **Markdown documentation** for your `auth` routes, following the same structure as before (no icons in headers, JSON examples included):
 
 # Authentication API Routes
 
