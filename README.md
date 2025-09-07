@@ -294,7 +294,7 @@ docker-compose up --build
 
 ### Run Migrations
 ```bash
-docker-compose exec app python -m alembic -c alembic.docker.ini upgrade head``` - running inside docker
+docker-compose exec app python -m alembic -c alembic.docker.ini upgrade head - running inside docker
 
 python -m alembic -c alembic.ini upgrade head - running locally without docker
 ```
@@ -305,8 +305,8 @@ python -m alembic -c alembic.ini upgrade head - running locally without docker
 
 ## Development
 - Install dependencies: `pip install -r requirements.txt`
-- Run locally: `uvicorn src.app.main:app --reload`
-- Run tests: `pytest`
+- Run locally: `PYTHONPATH=$(pwd) uvicorn src.app.main:app --reload`
+- Run tests: `PYTHONPATH=$(pwd) pytest`
 
 ## Useful Commands
 - View logs: `docker-compose logs app`
